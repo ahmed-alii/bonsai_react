@@ -5,7 +5,6 @@ import StyledLink from "../components/StyledLink";
 import PrimaryButton from "../components/PrimaryButton";
 import logo_green from "../assets/logo_green.png"
 import {useState} from "react"
-import {useNavigate} from 'react-router-dom'
 import StyledText from "../components/styledText";
 
 const PageWrapper = styled.main`
@@ -61,7 +60,6 @@ const Nav = styled.nav`
 
 export default function ScheduleDemo() {
     const [navOpen, setNavOpen] = useState(true)
-    const navigate = useNavigate()
     return (
         <PageWrapper className={"container-fluid"}>
             <Nav className="navbar navbar-light fixed-top px-lg-5 bg-white navbar-expand-lg">
