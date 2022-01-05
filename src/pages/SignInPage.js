@@ -90,7 +90,7 @@ export default function SignInPage() {
                 <FormCol className="col-md-12 col-lg-8 col-12">
                     <Routes>
                         <Route
-                            index={true}
+                            index
                             element={
                                 <FormWrapper>
                                     <h2 className={"fw-bold mb-3 poppins"}>Welcome back</h2>
