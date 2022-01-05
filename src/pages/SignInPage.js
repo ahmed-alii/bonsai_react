@@ -127,7 +127,7 @@ export default function SignInPage() {
                                         <div className="text-center my-4">
                                             <SpanMuted className={"text-black"}>
                                                 Don’t have an account yet? <StyledLink txt={"Sign up for free"}
-                                                                                       href={"sign-up"}/>
+                                                                                       href={"/sign-up"}/>
                                             </SpanMuted>
                                         </div>
                                     </div>
@@ -155,7 +155,7 @@ export default function SignInPage() {
                                 <div className="text-center my-4">
                                     <SpanMuted className={"text-black"}>
                                         Don’t have an account yet? <StyledLink txt={"Sign up for free"}
-                                                                               href={"sign-up"}/>
+                                                                               href={"/sign-up"}/>
                                     </SpanMuted>
                                 </div>
                             </FormWrapper>
@@ -180,7 +180,7 @@ export default function SignInPage() {
                                 <div className="text-center my-4">
                                     <SpanMuted className={"text-black"}>
                                         Don’t have an account yet? <StyledLink txt={"Sign up for free"}
-                                                                               href={"sign-up"}/>
+                                                                               href={"/sign-up"}/>
                                     </SpanMuted>
                                 </div>
                             </FormWrapper>

@@ -11,6 +11,7 @@ const Button = styled.button`
   font-size: 22px;
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
+  padding: 4px 40px;
 
   :hover {
     background-color: #472896;
