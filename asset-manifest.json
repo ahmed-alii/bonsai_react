@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/bonsai_react/static/css/main.307a3f02.css",
+    "main.js": "/bonsai_react/static/js/main.8d9caadb.js",
+    "static/media/casual-life-3d-reading.png": "/bonsai_react/static/media/casual-life-3d-reading.b28916e74b9b2f0da8e9.png",
+    "index.html": "/bonsai_react/index.html",
+    "main.307a3f02.css.map": "/bonsai_react/static/css/main.307a3f02.css.map",
+    "main.8d9caadb.js.map": "/bonsai_react/static/js/main.8d9caadb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.307a3f02.css",
+    "static/js/main.8d9caadb.js"
+  ]
+}
