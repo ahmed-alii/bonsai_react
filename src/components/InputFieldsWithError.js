@@ -5,6 +5,7 @@ import show from "../assets/outline-remove_red_eye-24px.png"
 import info from "../assets/info-icon.png"
 import {useState} from "react"
 import ReactTooltip from 'react-tooltip';
+import CountriesArray from "./CountriesArray";
 
 const ErrMsg = styled.span`
   color: #ED5F74;
@@ -91,13 +92,59 @@ const CountryCode = styled.select`
 `
 
 
+const Select = styled.select`
+  width: calc(100%);
+  height: 100%;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  color: #D2D8E0;
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    color: #D2D8E0;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  :-ms-input-placeholder {
+    color: #D2D8E0;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  :focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
+  option{
+    color: black;
+  }
+  option:disabled{
+    color: grey;
+  }
+`
+function SelectCountry(){
+    let countries = CountriesArray()
+    return(
+        <Select defaultValue={0}>
+            <option disabled={true} value={0}>Select your country</option>
+            {countries && countries.map((country, key) => {
+                return <option value={country.code} key={key}>{country.name}</option>
+            })}
+        </Select>
+    )
+}
+
 export default function InputFieldsWithError({type, id, label, err, placeholder}) {
     const [visible, setVisible] = useState(false)
 
 
     return (
         <div className={"mb-4"}>
-            <label htmlFor={id} className={"text-black fw-bold h6 poppins"}>{label}</label>
+            <label htmlFor={id} className={"text-black fw-bold h6 poppins"} style={{fontSize: "18px"}}>{label}</label>
 
             <InputWrapper>
 
@@ -112,8 +159,9 @@ export default function InputFieldsWithError({type, id, label, err, placeholder}
                 }
 
 
-                <Input type={type === "password" && visible ? "text" : type} className={"form-control"} id={id}
-                       placeholder={placeholder}/>
+                {type === "country" ? SelectCountry() : <Input type={type === "password" && visible ? "text" : type} className={"form-control"} id={id}
+                                               placeholder={placeholder}/>}
+
 
 
                 {/* If Password, show password*/}

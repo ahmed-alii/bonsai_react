@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const T = styled.p`
   color: ${props => (props.color ? props.color : "black")};
-  size: ${props => (props.size ? props.size : "20px")};
+  font-size: ${props => (props.size ? props.size : "20px !important")};
   font-weight: ${props => (props.weight ? props.weight : "400")};
   margin-bottom: ${props => (props.mb0 === true && 0)};
   font-family: 'Poppins', sans-serif;

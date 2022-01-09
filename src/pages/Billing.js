@@ -1,21 +1,16 @@
-import bg from "../assets/create-acc-cont.png"
+import bg from "../assets/billingBG.png"
 import styled from "styled-components";
 import InputFieldsWithError from "../components/InputFieldsWithError";
 import StyledLink from "../components/StyledLink";
-import PrimaryButton from "../components/PrimaryButton";
 import logo_green from "../assets/logo_green.png"
 import {useState} from "react"
 import Modal from 'react-modal';
 import {useNavigate} from 'react-router-dom'
-import cross from "../assets/cross.png"
-import greencheck from "../assets/phone-confirm-check.png"
-
-
-import g_btn from "../assets/googleMark.png"
-import f_btn from "../assets/fbMark.png"
-import s_btn from "../assets/Slack_Mark.png"
 import StyledText from "../components/styledText";
 import StyledCard from "../components/Card";
+import PaymentMethod from "../components/PaymentMethod";
+import PrimaryButton from "../components/PrimaryButton";
+import ErrorMessage from "../components/ErrorMessage";
 
 const PageWrapper = styled.main`
   min-height: 100vh;
@@ -45,9 +40,10 @@ const SpanMuted = styled.span`
 `
 
 const FormWrapper = styled.div`
-  max-width: 680px;
+  max-width: 90%;
   background-color: white;
   border-radius: 30px;
+  border: 1px solid #A7A8A8;
   padding: 50px 80px;
   margin-bottom: 100px;
   width: 100%;
@@ -111,7 +107,7 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-export default function CreateAccountDetails() {
+export default function Billing() {
     const [navOpen, setNavOpen] = useState(true)
     const navigate = useNavigate()
     const [modalIsOpen, setIsOpen] = useState(false);
@@ -156,60 +152,8 @@ export default function CreateAccountDetails() {
             </Nav>
 
             <MainRow className="row" id={"main-row"}>
-                <CreateBG className="order-1 order-md-0 col-md-7 col-lg-7 col-12 d-flex justify-content-center">
-                    <FormWrapper>
-                        <div className="text-center">
-                            <h2 className={"fw-bold mb-0 poppins"}>Create account</h2>
-                            <StyledText size={"17px"} color={"#B6BEC4"} weight={"bold"}>Let’s get started with a few
-                                simple steps</StyledText>
-                        </div>
 
-                        <div className={"d-flex justify-content-around my-5"}>
-                            <ButtonSocial>
-                                <img src={g_btn} alt=""/>
-                            </ButtonSocial>
-
-                            <ButtonSocial>
-                                <img src={s_btn} alt=""/>
-                            </ButtonSocial>
-
-                            <ButtonSocial>
-                                <img src={f_btn} alt=""/>
-                            </ButtonSocial>
-                        </div>
-
-                        <div>
-                            <InputFieldsWithError id={"f"} type={"text"} label={"Full Name"}
-                                                  placeholder={"first and last name"}/>
-                            <InputFieldsWithError id={"f"} type={"text"} label={"Company Name"}
-                                                  placeholder={"company name"}/>
-                            <InputFieldsWithError id={"f"} type={"email"} label={"Email"}
-                                                  placeholder={"username@email.com"}/>
-                            <InputFieldsWithError id={"f"} type={"password"} label={"Password"}
-                                                  placeholder={"password"}/>
-                            <InputFieldsWithError id={"f"} type={"password"} label={"Confirm Password"}
-                                                  placeholder={"confirm password"}/>
-                            <InputFieldsWithError id={"f"} type={"phone"} label={"Phone Number"}
-                                                  placeholder={"phone number"}/>
-                        </div>
-
-                        <div>
-                            <PrimaryButton txt={"Continue"} onclick={() => {
-                                //show modal
-                                openModal()
-                            }}/>
-                        </div>
-
-                        <div className={"text-center"}>
-                            <StyledText size={"17px"} weight={"bold"}>By clicking “Continue” you agree to
-                                Bonsai’s <StyledLink txt={"Terms of Service"} href={"#"} size={"17px"}/> and <StyledLink
-                                    txt={"Privacy Policy"} href={""} size={"17px"}/>.</StyledText>
-                        </div>
-                    </FormWrapper>
-                </CreateBG>
-
-                <IllustrationCol className="order-0 order-md-1 col-12 col-md-5 col-lg-5 d-flex align-items-center flex-column">
-
+                <IllustrationCol className="col-12 col-md-4 col-lg-4 d-flex align-items-center justify-content-center flex-column">
                     <StyledCard>
                         <StyledText size={"18px"} weight={"bold"} color={"#F4486D"} mb0>BUSINESS</StyledText>
                         <h4 className={"fw-bold mt-0 poppins mb-4"}>14 day free trial</h4>
@@ -247,66 +191,88 @@ export default function CreateAccountDetails() {
                             and taxes, if applicable.
                         </StyledText>
                     </StyledCard>
-                    <StyledCard>
-                        <StyledText size={"18px"} weight={"bold"} color={"#F4486D"} mb0>ENTERPRISE</StyledText>
-                        <h4 className={"fw-bold mt-0 poppins mb-4"}>Need more power?</h4>
-
-                        <div className={"mb-3"}>
-                            <StyledText size={"18px"} color={"#85939D"} weight={"bold"}>
-                                Fill out your information and a team
-                                member will be in contact shortly.
-                            </StyledText>
-                        </div>
-
-                        <PrimaryButton txt={"Schedule a Demo"} onclick={() => navigate("/schedule-demo")}/>
-
-                    </StyledCard>
                 </IllustrationCol>
+
+
+                <CreateBG className="col-md-8 col-lg-8 col-12 d-flex justify-content-center">
+                    <FormWrapper>
+                        <div className="row">
+                            <div className="col-md-6 pe-md-4">
+                                <div className="my-4">
+                                    <h1 className={"fw-bold mb-0 poppins"}>Billing Details</h1>
+                                </div>
+                                <div className={"pt-3"}>
+                                    <InputFieldsWithError id={"x"} type={"text"} label={"Full Name"}
+                                                          placeholder={"Name on card"}/>
+                                    <InputFieldsWithError id={"x"} type={"country"} label={"Country"}/>
+                                    <InputFieldsWithError id={"x"} type={"text"} label={"Street Address"}
+                                                          placeholder={"123 peacock lane"}/>
+                                    <InputFieldsWithError id={"x"} type={"country"} label={"State"}/>
+                                    <InputFieldsWithError id={"x"} type={"text"} label={"Postcode/zip"}
+                                                          placeholder={"postcode/zip code"}/>
+                                </div>
+                            </div>
+                            <div className="col-md-6 ps-md-4">
+                                <div
+                                    className={"d-flex justify-content-between align-items-center poppins fw-bold border-bottom py-2"}>
+                                    <span>BUSINESS PLAN</span>
+                                    <span>TOTAL</span>
+                                </div>
+                                <div
+                                    className={"d-flex justify-content-between align-items-center poppins fw-bold border-bottom py-2"}>
+                                    <span className={"text-muted fw-light"}>Total after trial</span>
+                                    <span className={"text-muted fw-light"}>$49.99/mo</span>
+                                </div>
+                                <div
+                                    className={"d-flex justify-content-between align-items-center poppins border-bottom py-2"}>
+                                    <span className={""}>TOTAL NOW</span>
+                                    <span className={""}>$0</span>
+                                </div>
+
+                                <div className={"my-3"}>
+                                    <span className={""}>PAYMENT METHOD</span>
+                                </div>
+                                <div>
+                                    <PaymentMethod/>
+                                </div>
+                                <div className={"d-flex align-items-center"}>
+                                    <input type="checkbox" name={"agreement"} value={"agree"} id={"agreement"}
+                                           className={""}/>
+                                    <label htmlFor={"agreement"} className={"px-2"}>I have read and agree to the terms
+                                        and
+                                        conditions.</label>
+                                </div>
+                                <div>
+                                    <ErrorMessage err={"Invalid billing information. Try again."} size={"14px"}/>
+                                </div>
+                                <div className={"mt-4"}>
+                                    <StyledText size={"12px"} weight={"bold"} color={"black"}>
+                                        Your personal data will be used to process your order &
+                                        support your experience. By clicking “Submit” you agree
+                                        to Bonsai’s <StyledLink txt={"Terms of Service"} href={"#"}
+                                                                size={"12px"}/> and <StyledLink txt={"Privacy Policy"}
+                                                                                                href={"#"}
+                                                                                                size={"12px"}/>.
+                                    </StyledText>
+                                </div>
+                                <div>
+                                    <PrimaryButton txt={"Submit"} onclick={()=>{
+
+                                    }}/>
+                                </div>
+
+                                <div className={"text-end"}>
+                                    <button className={"btn btn-float text-muted fw-bold h5 m-0"}>skip for now</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </FormWrapper>
+                </CreateBG>
+
+
             </MainRow>
-
-
-            <Modal
-                isOpen={modalIsOpen}
-                onRequestClose={closeModal}
-                style={customStyles}
-                contentLabel="Example Modal"
-                shouldCloseOnOverlayClick={false}
-                shouldCloseOnEsc={true}
-                preventScroll={false}
-
-            >
-                <div className="position-relative p-3">
-                    <div className="position-absolute" style={{right:0,top:0}}>
-                        <button onClick={closeModal} className={"btn btn-float"}>
-                            <img src={cross} alt=""/>
-                        </button>
-                    </div>
-                    <div className="text-center">
-                        <img src={greencheck} alt="" className={"img-fluid mb-4"}/>
-                        <h2 className={"fw-bold text-black mb-4"}>Confirm Your Phone Number</h2>
-                        <StyledText size={"20px"} weight={"bold"} color={"#495D6D"}>Please confirm your number by entering <br/> the authentication code sent to the provided number.</StyledText>
-                    </div>
-
-                    <div className={"d-flex justify-content-center"}>
-                        <InputFieldsWithError placeholder={"authentication code"} type={"text"} id={"code"}/>
-                    </div>
-                    <div className="row align-items-center">
-                        <div className={"col-12 col-md-8"}>
-                            <StyledText weight={"bold"} color={"#B6BEC4"} size={"16px"} mb0>
-                                It may take a minute to receive the code. <br/>
-                                Haven’t received it? <StyledLink href={"#"} txt={"Resend a new code."} size={"16px"}/>
-                            </StyledText>
-                        </div>
-                        <div className={"col-12 col-md-4"}>
-                            <PrimaryButton txt={"Submit"} onclick={()=>navigate("/billing")}/>
-                        </div>
-                    </div>
-                </div>
-
-
-            </Modal>
-
-
         </PageWrapper>
     )
 }
