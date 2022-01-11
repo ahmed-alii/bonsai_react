@@ -9,10 +9,10 @@ const StyledLinkel = styled(Link)`
   font-family: 'Poppins', sans-serif;
 `
 
-export default function StyledLink({href, txt, size}) {
+export default function StyledLink({href, txt, size, onClick}) {
 
     return (
-        <StyledLinkel to={href} size={size}>
+        <StyledLinkel to={href} size={size} onClick={onClick}>
             {txt}
         </StyledLinkel>
     )

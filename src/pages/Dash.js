@@ -24,6 +24,8 @@ const SideNav = styled.nav`
   background-color: #E8E7E8;
   padding-bottom: 20px;
   z-index: 1;
+  position: fixed;
+  min-height: 100vh;
 
 `
 
@@ -59,7 +61,6 @@ const Head = styled.div`
 export default function Dash() {
     return (
         <PageWrapper className={"d-flex"}>
-
             <SideNav>
                 <div className={"w-100"}>
                     <div style={{background: "#F1F1F1", padding: "10px", textAlign: "center", marginBottom: "60px"}}>
@@ -85,8 +86,6 @@ export default function Dash() {
                     </Linkk>
                 </div>
             </SideNav>
-
-
             <Main className="container-fluid">
                 <nav className="navbar navbar-light py-3">
                     <ul className="navbar-nav ms-auto me-5 mt-3">
@@ -99,10 +98,9 @@ export default function Dash() {
                 <div className="row mt-5">
                     <div className="col-md-8 offset-md-2">
                         <h2 className={"fw-bold mb-4"}>Let's Get Started</h2>
-
                         <Wrap>
                             <Head>
-                                <div className={"d-flex justify-content-between align-items-center"}>
+                                <div className={"d-flex justify-content-between align-items-center flex-wrap"}>
                                     <div className={"d-flex align-items-center"}>
                                         <img src={chat} alt=""
                                              style={{height: "40px", width: "40px", marginRight: "10px"}}/>

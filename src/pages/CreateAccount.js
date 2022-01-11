@@ -46,10 +46,11 @@ const FormWrapper = styled.div`
   border-radius: 30px;
   padding: 50px 80px;
   margin-bottom: 100px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.11);
   @media only screen and (max-width: 991px) {
     margin: auto;
   }
-  @media only screen and (max-width: 680px){
+  @media only screen and (max-width: 680px) {
     padding: 20px 40px;
   }
 `
@@ -59,6 +60,7 @@ const ButtonSocial = styled.button`
   border-radius: 10px;
   max-width: 196px;
   width: 100%;
+  min-width: 80px;
   height: 60px;
   display: flex;
   justify-content: center;
@@ -80,7 +82,7 @@ const CreateBG = styled.div`
 const FooterWrapper = styled.div`
   border: 1px solid #D2D8E0;
   background-color: white;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
